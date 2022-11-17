@@ -59,9 +59,31 @@ as.data.frame(summary.out$outmat)
 
 ## Pike
 
+```{r}
+Pike = filter(Fish,Species == 'Pike')
+Pike = subset(Pike, select = -Species)
+weightPike = lm(Weight~Length1 + Length2 +Length3 + Height + Width, data = Pike)  
+summary.lm(weightPike)  
+```
+
+
 ### Best Models
 
 ### Best Two regressor model
+
+```{r}
+regsubsets.out <-
+    regsubsets(Weight ~.,
+               data = Pike,
+               nbest = 1,       # 1 best model for each number of predictors
+               nvmax = NULL,    # NULL for no limit on number of variables
+               force.in = NULL, force.out = NULL,
+               method = "exhaustive")
+
+summary.out <- summary(regsubsets.out)
+as.data.frame(summary.out$outmat)
+```
+
 
 ## Roach
 
