@@ -16,16 +16,45 @@ output:
 ```{r include=FALSE,echo=FALSE}
 require(tigerstats)
 require(tidyverse)
+library(leaps)
 ```
+
+
+## Import fish CSV using the import function that LUZ found   
+
 
 # Predicting Fish Weight
 
 
+
 ## Perch
+```{r}
+Fish = read.csv('Fish.csv')  
+Perch = filter(Fish,Species == 'Perch')
+Perch = subset(Perch, select = -Species)
+weightPerch = lm(Weight~Length1 + Length2 +Length3 + Height + Width, data = Perch)  
+summary.lm(weightPerch)  
+```
+
 
 ### Best Models
 
+
+
 ### Best Two regressor model
+```{r}
+regsubsets.out <-
+    regsubsets(Weight ~.,
+               data = Perch,
+               nbest = 1,       # 1 best model for each number of predictors
+               nvmax = NULL,    # NULL for no limit on number of variables
+               force.in = NULL, force.out = NULL,
+               method = "exhaustive")
+
+summary.out <- summary(regsubsets.out)
+as.data.frame(summary.out$outmat)
+```
+
 
 
 ## Pike
