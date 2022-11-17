@@ -114,4 +114,7 @@ as.data.frame(summary.out$outmat)
 In the Roach species the Adjusted R-squared value is 0.821. The best two variables are Width and Length3.
 
 
-## Final Summary Statements
+## Final Summary Statements    
+
+The adjusted R-square for Perch is 0.9372, The adjusted R-square for Pike is 0.9794, and the adjusted R-square for Roach is 0.821. The Pike fish gives the best results in predicting the fish weight based on the variables given in the best two regressor model since it had the biggest adjusted R-square of 0.9794 making it the best fit.
+
