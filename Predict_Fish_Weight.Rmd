@@ -37,6 +37,7 @@ summary.lm(weightPerch)
 ```
 
 
+
 ### Best Models
 
 
@@ -55,6 +56,7 @@ summary.out <- summary(regsubsets.out)
 as.data.frame(summary.out$outmat)
 ```
 
+In the Perch species the Adjusted R-squared value is 0.9372. The best two variables are Height and Weight.
 
 
 ## Pike
@@ -84,6 +86,7 @@ summary.out <- summary(regsubsets.out)
 as.data.frame(summary.out$outmat)
 ```
 
+In the Pike species the Adjusted R-squared value is 0.9794. The best two variables are Length3 and Length1.
 
 ## Roach
 ```{r}
@@ -108,7 +111,7 @@ regsubsets.out <-
 summary.out <- summary(regsubsets.out)
 as.data.frame(summary.out$outmat)
 ```
-
+In the Roach species the Adjusted R-squared value is 0.821. The best two variables are Width and Length3.
 
 
 ## Final Summary Statements
